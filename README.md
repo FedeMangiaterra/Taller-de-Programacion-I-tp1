@@ -27,3 +27,8 @@ Luego de completar el buffer con toda la información correctamente ordenada, la
 Cuando termina la partida, ademas de los uninits del socket de la conexion entre host y cliente y de la partida de ahorcado, se aumenta el contador de victorias o derrotas del servidor. Estos resultados se muestran cuando la funcion *getline()* devuelve -1, porque eso significa que se llego al EOF (o que hubo otro error).<br>
 Todo esto terminó conformando el TDA server hangman. <br>
 Para el cliente, no se usa el TDA hagman_game pero sí el de socket. Se inicia uno y se establece la conexion con el servidor. Lo que hace es recibir los bytes del protocolo de comunicación e interpretarlos, para luego imprimirlos con el formato indicado. Luego solicita que se ingrese una letra. El usuario también puede ingresar más de una y éstas se procesan individualmente. Se estableció como límite a la entrada del usuario una constante arbitraria de 30, pero podría tener cualquier otro valor. Con cada letra lo que hace es enviarla al servidor y volver a interpretar lo que el servidor le manda. Este ciclo continúa hasta que la cantidad de intentos sea mayor o igual a 128, pues esto significa que el primer bit del unsigned char que lo almacena está en 1. Luego se fija qué pasa si a ese numero le resta 128. Si es 0, es porque el cliente se quedó sin intentos. en caso contrario, el cliente adivinó la palabra. Dependiendo de esto ultimo imprime uno u otro mensaje de fin de partida, con la particularidad de que si el cliente perdió, se hace uso de el recibir la palabra correcta por parte del servidor para poder mostrarla en pantalla.
+
+@startuml
+Bob -> Alice : hello
+Alice -> Drico
+@enduml
